@@ -1,0 +1,763 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"epub",
+				"epub_name"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"e",
+				"expanduser"
+			],
+			[
+				"ep",
+				"epub_file"
+			],
+			[
+				"pdf",
+				"pdf_file"
+			],
+			[
+				"TMR",
+				"TMR0L"
+			],
+			[
+				"fram",
+				"frameDiff"
+			],
+			[
+				"DATABASE",
+				"DATABASE"
+			],
+			[
+				"data",
+				"database_connect_test"
+			],
+			[
+				"da",
+				"database_connect_test"
+			],
+			[
+				"d",
+				"dynamic"
+			],
+			[
+				"slid",
+				"slideUp"
+			],
+			[
+				"sl",
+				"slideUp"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"t",
+				"tbody	Tag"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"sub",
+				"subnav"
+			],
+			[
+				"a",
+				"append"
+			],
+			[
+				"re",
+				"ready"
+			],
+			[
+				"content",
+				"content_number"
+			],
+			[
+				"bak",
+				"background-color"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"user_",
+				"user_id"
+			],
+			[
+				"alum",
+				"alumno_exist"
+			],
+			[
+				"u",
+				"ul	Tag"
+			],
+			[
+				"Asign",
+				"Asignaturahorario"
+			],
+			[
+				"Asig",
+				"Asignaturarecursodocente"
+			],
+			[
+				"Pro",
+				"Profesorasignatura"
+			],
+			[
+				"Sec",
+				"Secretary"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"echo",
+				"echo	echo \"…\""
+			],
+			[
+				"b",
+				"browsers"
+			],
+			[
+				"logi",
+				"login-trigger"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"coun",
+				"country"
+			],
+			[
+				"bro",
+				"browser"
+			],
+			[
+				"countr",
+				"countrys"
+			],
+			[
+				"php",
+				"php"
+			],
+			[
+				"table",
+				"table-links"
+			],
+			[
+				"Serv",
+				"ServerSocket"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "KindleSync.py",
+			"settings":
+			{
+				"buffer_size": 731,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "KindleSyncMain.py",
+			"settings":
+			{
+				"buffer_size": 4514,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"C++",
+				"Set Syntax: C++"
+			],
+			[
+				"Python",
+				"Set Syntax: Python"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"subl",
+				"Preferences: SublimeClang Settings – Default"
+			],
+			[
+				"subli",
+				"Preferences: SublimeClang Settings – User"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Alex/Desktop/KindleSync.py",
+		"/Users/Alex/Dropbox/Quinto/HAE/Practica6/Practica6.c",
+		"/Users/Alex/Dropbox/Quinto (1)/HAE/hae practicas/Practica8/Practica8.c",
+		"/Users/Alex/Dropbox/Quinto (1)/HAE/Practicas/Practica6/Practica6.c",
+		"/Users/Alex/Dropbox/Quinto (1)/SI/Practicas/Aspiradora/r1.asl",
+		"/Users/Alex/Dropbox/Quinto (1)/SI/Practicas/Aspiradora/MarsEnv.java",
+		"/Users/Alex/Dropbox/Quinto (1)/SI/Practicas/Aspiradora/package ambiente.java",
+		"/Users/Alex/Desktop/prueba.cpp",
+		"/Applications/Minecraft Server/special/server.properties",
+		"/Users/Alex/server.properties",
+		"/Applications/Minecraft Server/server.properties",
+		"/Users/Alex/Dropbox/Proyectos/Genbeta-Dev-Engine/src/GDE/Core/App.cpp",
+		"/Users/Alex/Dropbox/Proyectos/Genbeta-Dev-Engine/src/Test/main.cpp",
+		"/Users/Alex/Dropbox/Proyectos/Genbeta-Dev-Engine/gde.sublime-project",
+		"/Users/Alex/Library/Application Support/Sublime Text 2/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/Users/Alex/Library/Application Support/Sublime Text 2/Packages/User/SublimeClang.sublime-settings",
+		"/Users/Alex/Dropbox/Quinto/TFG/libreria temporal.sql",
+		"/Volumes/Datos/Users/Alex/Downloads/sift_surf_opencv_android_package/README",
+		"/Volumes/Datos/Users/Alex/Downloads/android-ndk-r9/prebuilt/darwin-x86_64/lib/python2.7/lib2to3/fixes/fix_idioms.py",
+		"/Volumes/Datos/Users/Alex/Downloads/DownloadImage.java",
+		"/Volumes/Datos/Users/Alex/Sites/TrabajosIU/SportCenter/Insertar_Usuarios.php",
+		"/Users/Alex/Dropbox/Quinto/TFG/libreriatemporal.sql",
+		"/Users/Alex/Desktop/temp.html",
+		"/Users/Alex/Desktop/script_opencv.py",
+		"/Users/Alex/Documents/workspace_android/OpenCV Sample - face-detection/obj/local/armeabi-v7a/objs/detection_based_tracker/DetectionBasedTracker_jni.o.d",
+		"/Volumes/Datos/Users/Alex/Downloads/sift_surf_opencv_android_package/sift_opencv_android/run.sh",
+		"/Users/Alex/Downloads/functions_fetch.php",
+		"/Users/Alex/Downloads/janrain.php",
+		"/Users/Alex/Downloads/selling_profile.html",
+		"/Volumes/C/Users/Alexsays/Desktop/libreria temporal.sql",
+		"/Volumes/Datos/Users/Alex/Downloads/K-PAX (2001)/AhaShare.com.txt",
+		"/Volumes/Untitled/config.txt",
+		"/Applications/FIFA 13.app/Contents/Resources/drive_c/Games/FIFA 13/Game/fifasetup/fifasetup_default.ini",
+		"/Users/Alex/Desktop/Practica Bot/testfinal.txt",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/chatfinal_m.pl",
+		"/private/etc/hosts",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/Bot prolog markius/train.txt",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/testinicial.txt",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/testfinal.txt",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/chatbot_m.pl",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/chatbot.pl",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/Bot prolog markius/chatfinal.pl",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/SI/BOT.pl",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/DM/DM_2/sdk/sources/android-15/android/util/LruCache.java",
+		"/Applications/MAMP/htdocs/trabajo_carlos/index.html",
+		"/Volumes/Datos/Users/Alex/Downloads/template.html",
+		"/Applications/MAMP/htdocs/trabajo_carlos/menupopup.js",
+		"/Applications/MAMP/htdocs/trabajo_carlos/style.css",
+		"/Applications/MAMP/htdocs/trabajo_carlos/topstyle.css",
+		"/Applications/MAMP/htdocs/trabajo_carlos/topnavpopup.js",
+		"/Applications/MAMP/htdocs/trabajo_carlos/menu.js",
+		"/Applications/MAMP/htdocs/trabajo_carlos/prueba.js",
+		"/Applications/MAMP/htdocs/trabajo_carlos/submenus",
+		"/Applications/MAMP/htdocs/trabajo_carlos/1.html",
+		"/Applications/MAMP/htdocs/wizard/wizard.html",
+		"/Applications/MAMP/htdocs/wizard/wizard_styles.css",
+		"/Applications/MAMP/htdocs/wizard/wizard_functions.js",
+		"/Users/Alex/Downloads/wizard_styles.css",
+		"/Users/Alex/Downloads/wizard_functions.js",
+		"/Users/Alex/Downloads/wizard.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.2b1.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.1b3.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.2b2.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.2b3.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.2b4.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.3b1.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.4b1.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.5b1.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.5b2.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.6b1.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.6b2.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.7b1.html",
+		"/Users/Alex/Dropbox/Public/versions/0.9.7b2.html",
+		"/Users/Alex/Dropbox/Public/index.html",
+		"/Applications/MAMP/htdocs/prueba.html",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/DM/DM_2/workspace/Pharminder/res/raw/meds.text",
+		"/Volumes/Datos/Users/Alex/Downloads/Minecraft/StarWars_Alpha_1.1.0_prereleaseB/INSTRUCTIONS.txt",
+		"/Users/Alex/Dropbox/Trabajo/Ziblec/Proyecto Tests/Tests/Tests/test_1.xml",
+		"/Volumes/Datos/Users/Alex/Downloads/LatestLibrarySources.txt",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1.csv",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1-1.xlsx/xl/sharedStrings.xml",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1-1.xlsx/xl/workbook.xml",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1-1.xlsx/xl/worksheets/sheet1.xml",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1.html",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1.xls/SummaryInformation",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1.xls/DocumentSummaryInformation",
+		"/Volumes/Datos/Users/Alex/Downloads/test_1.xls",
+		"/Users/Alex/My Games/Server con Ju/mods.txt",
+		"/Users/Alex/Documents/poclbm/distribute_setup.py",
+		"/Users/Alex/Library/Application Support/minecraft/options.txt",
+		"/Users/Alex/My Games/Server con Ju/Server/server.properties",
+		"/Volumes/Datos/Users/Alex/Downloads/openvas",
+		"/Volumes/Datos/Users/Alex/Downloads/ejercicio-snort.sh",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/DM/TEMP/tools/stopemulators.sh",
+		"/Users/Alex/Dropbox/Compartido Ju/Instrucciones Minecraft.txt",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/DM/TEMP/tools/startemulators.sh",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/DM/TEMP/tools/stopemulators.bat",
+		"/Users/Alex/Dropbox/Cuarto/2cuatrimestre/DM/TEMP/tools/startemulators.bat",
+		"/Users/Alex/Dropbox/Cuarto/2 cuatrimestre/DM/TEMP/clave_desarrollo.txt",
+		"/Users/Alex/Dropbox/Public/Minecraft/updatelwjgl.sh",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Users/index.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Alumnos/index.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Elements/main.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/Controller/AlumnosController.php",
+		"/Users/Alex/Desktop/hola.txt",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Alumnos/add.ctp",
+		"/Users/Alex/Desktop/hola1.txt",
+		"/Users/Alex/Dropbox/Cuarto/IG/Proyecto/Instrucciones.txt",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/add_sched.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/add_res.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/add_prof.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/add_stud.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/Controller/AsignaturasController.php",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/index.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/view.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/Controller/UsersController.php",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Becarios/add.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Secretarios/index.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/add.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Profesors/add.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Secretarios/add.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Asignaturas/edit.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Users/add.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Profesors/list_prof.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Secretarios/list_sec.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Becarios/index.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Alumnos/view.ctp",
+		"/Users/Alex/Dropbox/Cuarto/ABP/cake/app/View/Recursodocentes/index.ctp"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open file>",
+			"",
+			"<open files>",
+			"",
+			"/Users/Alex/Dropbox/Cuarto/ABP/cake/app",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"logger",
+			"ns",
+			"informAgs",
+			"{",
+			"is_linked",
+			"extraer_palabras",
+			"PregTest",
+			"PregCorrecta",
+			"mostrar",
+			"eliminar_caracteres",
+			"Testing",
+			"obtener_conjunto_respuestasuntas\n",
+			"Bloque",
+			"obtener_bloque",
+			"bloque_preg",
+			"get_negaciones",
+			"BC",
+			"encuentra_negaciones",
+			"mostrar",
+			"pre_res",
+			"AUX1",
+			"recoger",
+			"procesar_fichero_testing",
+			"procesar_fichero_database",
+			"pasa_frase",
+			"ristra",
+			"database_connect_testing",
+			"response_database",
+			"retract",
+			"leer_fichero_database",
+			"bloque_pt",
+			"palabra",
+			"eliminar",
+			"procesar_bc",
+			"procesar_entrenam",
+			"at_end_of_stream",
+			"fichero_entrenamiento",
+			"fichero",
+			"fichero:",
+			"procesar_fichero_database",
+			"fichero_database",
+			"NumCoincidencias",
+			"Coincidencias",
+			"Aux6",
+			"Aux5",
+			"Aux4",
+			"Testing",
+			"Aux1",
+			"obtener_bloque_respuestas",
+			"obtener_respuestas",
+			"escribir_respuestas",
+			"escribir_respuesta",
+			"concatena",
+			"inserta_bloque",
+			"insertar_bloque",
+			"compara2",
+			"PalabraDatabase",
+			"Aux3",
+			"Aux2",
+			"compara_todas_preg2",
+			"compara_todas_preg",
+			"elimina_neg_doblelista",
+			"elimina_neg_doblelist",
+			"elimina_neg",
+			"encontrar_negaciones",
+			"palabra",
+			"Frase2",
+			"Frase1",
+			"Frase",
+			"contar_palabras",
+			"cuenta_palabras",
+			"Frase",
+			"Tot",
+			"lista_palabras2",
+			"bloque_preg",
+			"devuelve_bloque",
+			"Aux",
+			"obtener_bloques",
+			"bloques",
+			"Bloques",
+			"Bloque",
+			"bloque",
+			"bloque_bc",
+			"bloque",
+			"Bloque",
+			"bloque_bc",
+			"obtener_pregunta",
+			"obtener_preguntas",
+			"palabra",
+			"Aux",
+			"database_connect_testing",
+			"mostrar",
+			"tamano",
+			"obtener_bloque_preguntas",
+			"leer_fichero",
+			"response_database",
+			"retractal",
+			"obtener_bloque_preguntas",
+			"Database",
+			"Database :",
+			"response_data",
+			"id_number",
+			"by Alexsays, web: <a href=\"http://alexsays.me\">http://alexsays.me</a>, email: support [at] alexsays [dot] me",
+			"uploaded.to",
+			"curl",
+			"'horariodocente'",
+			"recurso",
+			"recursos",
+			"'Profesor'",
+			"$profesor",
+			"Horary",
+			"horary",
+			"delete",
+			"hola",
+			"\"erre\"",
+			"\"r\"",
+			"\"h\"",
+			">r<",
+			"\"h\"",
+			"usuarios",
+			"usuario_id",
+			"hover",
+			"input[type=submit]",
+			"submit",
+			"users",
+			"brows",
+			"submit",
+			"li "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"PregBuscada",
+			"PregEncontrada",
+			"TestFinal",
+			"obtener_conjunto_preguntas",
+			"ConjRespuestas",
+			"obtener_respuestas",
+			"conjunto_respuestas",
+			"mod_negaciones",
+			"Entrenamiento",
+			"buscar_negacion",
+			"procesar_fichero_test",
+			"procesar_fichero_entrenamiento",
+			"frase_to_char",
+			"conj_caracateres",
+			"database_connect_test",
+			"database_connect",
+			"procesar_entrenamiento",
+			"Temp6",
+			"Temp5",
+			"Temp4",
+			"Test",
+			"Temp1",
+			"Temp3",
+			"Temp2",
+			"compara_preguntas_ex_aux",
+			"compara_preguntas_ex",
+			"elimina_negadas",
+			"Texto2",
+			"Texto1",
+			"Texto",
+			"Total",
+			"return_b",
+			"Temp",
+			"blocks",
+			"Block",
+			"block",
+			"one_block",
+			"block",
+			"Block",
+			"block",
+			"pregunta",
+			"preguntas",
+			"TempSize",
+			"database_connect_test",
+			"printAsk",
+			"size",
+			"preguntas_block",
+			"fichero",
+			"database_connect",
+			"by Alexsays, email: h4ll0ck [at] gmail [dot] com",
+			"uploaded.net",
+			"'Horario'",
+			"horario",
+			"horarios",
+			"'Recursodocente'",
+			"$recurso",
+			"\"r\"",
+			"\"h\"",
+			"\"erre\"",
+			"\"r\"",
+			"user_id",
+			"0.9.6b2",
+			"0.9.6b1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "KindleSync.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 731,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								731,
+								731
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "KindleSyncMain.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 112.0
+	},
+	"output.exec":
+	{
+		"height": 292.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Kindle Sync.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Applications/MAMP/htdocs/trabajo_carlos/style.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 223.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
