@@ -1,2 +1,4 @@
 Kindle Sync.sublime-project
 Kindle Sync.sublime-workspace
+*.pyc
+*.temp
