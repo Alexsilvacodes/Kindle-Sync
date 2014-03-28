@@ -2,3 +2,10 @@ Kindle Sync.sublime-project
 Kindle Sync.sublime-workspace
 *.pyc
 *.temp
+altgraph-0.11-py2.7.egg
+kindlegen
+build/
+dist
+py2app-0.8-py2.7.egg
+modulegraph-0.11-py2.7.egg
+macholib-1.6-py2.7.egg

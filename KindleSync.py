@@ -22,7 +22,7 @@ def initFolderConf():
 		mkdir(ks_folder)
 		mkdir(ks_folder + "/ConvertedKindle")
 	except Exception, e:
-		print e
+		pass
 
 #
 # Collect epub from iBooks Library to convert it to .mobi files

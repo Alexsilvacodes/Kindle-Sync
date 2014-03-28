@@ -9,6 +9,9 @@
 
 from PyQt4 import QtCore, QtGui
 from KindleSync import *
+from time import sleep
+from subprocess import call
+import os, shutil
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -24,8 +27,9 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+
 class MyTableView(QtGui.QTableView):
-    def hola():
+    def nothing():
         pass
 
 class Ui_MainWindow(object):
@@ -39,60 +43,28 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(684, 520))
         MainWindow.setMaximumSize(QtCore.QSize(684, 520))
+        flags = QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.Window #| QtCore.Qt.CustomizeWindowHint
+        MainWindow.setWindowFlags(flags)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.tableViewLibrary = MyTableView(self.centralwidget)
         self.tableViewLibrary.setGeometry(QtCore.QRect(0, 0, 684, 401))
         self.tableViewLibrary.setShowGrid(False)
         self.tableViewLibrary.setCornerButtonEnabled(False)
+        self.tableViewLibrary.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.tableViewLibrary.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tableViewLibrary.setObjectName(_fromUtf8("tableViewLibrary"))
         self.tableViewLibrary.horizontalHeader().setVisible(False)
         self.tableViewLibrary.verticalHeader().setVisible(False)
 
         ## Changes ##
-        initFolderConf()
-        self.books = collectiBooks()
-        createLibrary(self.books)
-        if debug: self.books = [{'book_name': "1"},{'book_name': "2"},{'book_name': "3"}]
-        self.model = QtGui.QStandardItemModel(len(self.books), 2)
-
-        # # Section Header List
-        # headerItem = QtGui.QStandardItem()
-        # headerItem.setText("Libros")
-        # headerItem.setSelectable(False)
-        # self.model.setHorizontalHeaderItem(0, headerItem)
-        self.tableViewLibrary.setModel(self.model)
+        self.model = QtGui.QStandardItemModel()
         
-        blue_color = QtGui.QBrush(QtGui.QColor(240, 243, 249))
-        epub_icon = QtGui.QImage(_fromUtf8("images/epub_tag.png"))
-        mobi_icon = QtGui.QImage(_fromUtf8("images/mobi_tag.png"))
-        # epub_icon = epub_icon.scaled(54, 15)
-        for i,book in enumerate(self.books):
-            itemCol1 = QtGui.QStandardItem(_fromUtf8(book['book_name']))
-            itemCol2 = QtGui.QStandardItem()
-            itemCol1.setToolTip(_fromUtf8(book['book_name']))
-            itemCol2.setToolTip(_fromUtf8(book['book_name']))
-            itemCol1.setEditable(False)
-            itemCol2.setEditable(False)
-
-            if book['converted']:
-                itemCol2.setData(QtCore.QVariant(mobi_icon), QtCore.Qt.DecorationRole)
-            else:
-                itemCol2.setData(QtCore.QVariant(epub_icon), QtCore.Qt.DecorationRole)
-            if not i%2: 
-                itemCol1.setBackground(blue_color)
-                itemCol2.setBackground(blue_color)
-            self.model.setItem(i, 0, itemCol1)
-            self.model.setItem(i, 1, itemCol2)
-        ## Slot Signal >> QtCore.QObject.connect(self.tableViewLibrary, QtCore.SIGNAL("entered(const QModelIndex&)"), self.onClickConvertSel)
-        if len(self.books) > 13:
-            tableViewWidth = self.tableViewLibrary.geometry().width()-17
-        else:
-            tableViewWidth = self.tableViewLibrary.geometry().width()-2
-        self.tableViewLibrary.setColumnWidth(0, tableViewWidth * 0.90)
-        self.tableViewLibrary.setColumnWidth(1, tableViewWidth * 0.10)
-        ##############
+        self.blue_color = QtGui.QBrush(QtGui.QColor(240, 243, 249))
+        self.epub_icon = QtGui.QImage(_fromUtf8("images/epub_tag.png"))
+        self.mobi_icon = QtGui.QImage(_fromUtf8("images/mobi_tag.png"))
+        self.mobi_icon_g = QtGui.QImage(_fromUtf8("images/mobi_tag_g.png"))
+        self.redrawTable()
 
         self.btnEpMoAll = QtGui.QPushButton(self.centralwidget)
         self.btnEpMoAll.setGeometry(QtCore.QRect(10, 400, 151, 91))
@@ -156,12 +128,88 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Kindle Sync", None))
 
-    def onClickConvertSel(self):
-        index_list = self.tableViewLibrary.selectionModel().selectedIndexes()
-        print self.model.item(1).sizeHint()
+    def redrawTable(self):
+        initFolderConf()
+        self.books = collectiBooks()
+        createLibrary(self.books)
+        self.model.setColumnCount(3)
+        self.model.setColumnCount(len(self.books))
 
-        for index in index_list:
-            print index.row()
+        self.tableViewLibrary.setModel(self.model)
+
+        if debug: self.books = [{'book_name': "1"},{'book_name': "2"},{'book_name': "3"}]
+
+        for i,book in enumerate(self.books):
+            itemCol1 = QtGui.QStandardItem(_fromUtf8(book['book_name']))
+            itemCol2 = QtGui.QStandardItem()
+            itemCol3 = QtGui.QStandardItem()
+            itemCol1.setToolTip(_fromUtf8(book['book_name']))
+            itemCol2.setToolTip(_fromUtf8(book['book_name']))
+            itemCol3.setToolTip(_fromUtf8(book['book_name']))
+            itemCol1.setEditable(False)
+            itemCol2.setEditable(False)
+            itemCol3.setEditable(False)
+
+            itemCol2.setData(QtCore.QVariant(self.epub_icon), QtCore.Qt.DecorationRole)
+            if book['converted']:
+                itemCol3.setData(QtCore.QVariant(self.mobi_icon), QtCore.Qt.DecorationRole)
+            else:
+                itemCol3.setData(QtCore.QVariant(self.mobi_icon_g), QtCore.Qt.DecorationRole)
+
+            if not i%2: 
+                itemCol1.setBackground(self.blue_color)
+                itemCol2.setBackground(self.blue_color)
+                itemCol3.setBackground(self.blue_color)
+            self.model.setItem(i, 0, itemCol1)
+            self.model.setItem(i, 1, itemCol2)
+            self.model.setItem(i, 2, itemCol3)
+        ## Slot Signal >> QtCore.QObject.connect(self.tableViewLibrary, QtCore.SIGNAL("entered(const QModelIndex&)"), self.onClickConvertSel)
+        if len(self.books) > 13:
+            tableViewWidth = self.tableViewLibrary.geometry().width()-17
+        else:
+            tableViewWidth = self.tableViewLibrary.geometry().width()-2
+        self.tableViewLibrary.setColumnWidth(0, tableViewWidth * 0.80)
+        self.tableViewLibrary.setColumnWidth(1, tableViewWidth * 0.10)
+        self.tableViewLibrary.setColumnWidth(2, tableViewWidth * 0.10)
+
+    def onClickConvertSel(self):
+        index_list = self.tableViewLibrary.selectionModel().selectedRows()
+
+        progress = QtGui.QProgressDialog(MainWindow)
+        # progress.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
+        progress.setRange(0, len(index_list))
+        progress.setWindowModality(QtCore.Qt.WindowModal)
+        progress.setAutoClose(False)
+        progress.setAutoReset(False)
+        progress.setCancelButton(None)
+
+        for i, index in enumerate(index_list):
+            progress.setLabelText(_fromUtf8("Convirtiendo: " + self.books[index.row()]['book_name']))
+            print self.books[index.row()]['book_name']
+            progress.setValue(i)
+            progress.show()
+            QtCore.QCoreApplication.instance().processEvents()
+            if not self.books[index.row()]['converted']:
+                cmd = "./kindlegen " + ibooks_folder + self.books[index.row()]['book_file'] + " -o " + self.books[index.row()]['book_file'].split(".")[0] + ".mobi"
+                print cmd
+                try:
+                    os.system(cmd)
+                except Exception, e:
+                    print e
+                
+                try:
+                    os.rename(ibooks_folder + self.books[index.row()]['book_file'].split(".")[0] + ".mobi", ks_folder + "/ConvertedKindle/" + self.books[index.row()]['book_file'].split(".")[0] + ".mobi")
+                except Exception, e:
+                    print e
+                # try:
+                #     call(cmd)
+                # except Exception, e:
+                #     print e
+                
+        progress.setValue(len(index_list))
+        progress.close()
+        self.redrawTable()
+
 
     def onClickConvertAll(self):
         pass
