@@ -1,5 +1,7 @@
 #!/usr/env/bin python
 # -*- coding: utf-8 -*-
+#
+# 2014 Alex Silva <alexsilvaf28 at gmail.com>
 
 from biplist import *
 from os.path import *

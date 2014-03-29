@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'KindleSyncMain.ui'
 #
-# Created: Thu Mar 27 15:40:47 2014
-#      by: PyQt4 UI code generator 4.10.3
-#
-# WARNING! All changes made in this file will be lost!
+# 2014 Alex Silva <alexsilvaf28 at gmail.com>
 
 from PyQt4 import QtCore, QtGui
 from KindleSync import *
+from AboutDialog import *
 from time import sleep
 from subprocess import call
-import os, shutil
+import os, subprocess
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -27,12 +23,69 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+class ConversorThread(QtCore.QThread):
+    """
+    Thread to do the conversion to mobi files
+    Methods:
+    - execTimeoutTimer(): called on timer timeout to kill long time processes
+    - run(): runnable method that convert and move files
+    """
+    finishBookNum = QtCore.pyqtSignal(int)
+    finishBookName = QtCore.pyqtSignal(QtCore.QString)
+    finishWithError = QtCore.pyqtSignal(list)
 
-class MyTableView(QtGui.QTableView):
-    def nothing():
-        pass
+    def __init__(self, indexes, books, parent=None):
+        QtCore.QThread.__init__(self, parent)
+        self.indexes = indexes
+        self.books = books
+        self.timer = QtCore.QTimer()
+        self.timer.setSingleShot(True)
+        self.timer.timeout.connect(self.execTimeoutTimer)
+        self.conv_proc = ""
+        self.file_error = []
+        self.flag_error = False
+
+    def execTimeoutTimer(self):
+        try:
+            self.conv_proc.kill()
+            self.flag_error = True
+        except Exception, e:
+            print e
+
+    def run(self):
+        for i in self.indexes:
+            if not self.books[i]['converted']:
+                self.flag_error = False
+                self.timer.start(50000)
+                cmd = "./kindlegen " + ibooks_folder + self.books[i]['book_file'] + " -o " + self.books[i]['book_file'].split(".")[0] + ".mobi"
+                print cmd
+                self.finishBookName.emit(_fromUtf8("Convirtiendo libro " + str(i+1)))
+                self.conv_proc = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
+                (stdout, stdin) = self.conv_proc.communicate()
+                if "error" in stdout or self.flag_error is True:
+                    self.file_error.append(str(i+1))
+
+                try:
+                    os.rename(ibooks_folder + self.books[i]['book_file'].split(".")[0] + ".mobi", ks_folder + "/ConvertedKindle/" + self.books[i]['book_file'].split(".")[0] + ".mobi")
+                except Exception, e:
+                    print e
+
+                self.finishBookNum.emit(i+1)
+        self.finishWithError.emit(self.file_error)
 
 class Ui_MainWindow(object):
+    """
+    Main Window class
+    Methods:
+    - setupUi: setup the MainWindow GUI
+    - redrawTable: put values on QTableView
+    - onClickConvertSel: slot called with button btnEpMoSel. Convert only selected books
+    - onClickConvertAll: slot called with button btnEpMoAll. Convert all library books
+    - onClickSendSel: slot called with button btnUploadSel. Send to kindle only selected library books
+    - onClickSendAll: slot called with button btnUploadAll. Send to kindle all library books
+    - showErrors: show a dialog if there's any file with conversion errors
+    """
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(684, 520)
@@ -43,11 +96,9 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(684, 520))
         MainWindow.setMaximumSize(QtCore.QSize(684, 520))
-        flags = QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.Window #| QtCore.Qt.CustomizeWindowHint
-        MainWindow.setWindowFlags(flags)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
-        self.tableViewLibrary = MyTableView(self.centralwidget)
+        self.tableViewLibrary = QtGui.QTableView(self.centralwidget)
         self.tableViewLibrary.setGeometry(QtCore.QRect(0, 0, 684, 401))
         self.tableViewLibrary.setShowGrid(False)
         self.tableViewLibrary.setCornerButtonEnabled(False)
@@ -55,7 +106,9 @@ class Ui_MainWindow(object):
         self.tableViewLibrary.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tableViewLibrary.setObjectName(_fromUtf8("tableViewLibrary"))
         self.tableViewLibrary.horizontalHeader().setVisible(False)
-        self.tableViewLibrary.verticalHeader().setVisible(False)
+        self.tableViewLibrary.verticalHeader().setVisible(True)
+        self.tableViewLibrary.verticalHeader().setMinimumSectionSize(30)
+        self.tableViewLibrary.verticalHeader().setResizeMode(QtGui.QHeaderView.Fixed)
 
         ## Changes ##
         self.model = QtGui.QStandardItemModel()
@@ -65,6 +118,7 @@ class Ui_MainWindow(object):
         self.mobi_icon = QtGui.QImage(_fromUtf8("images/mobi_tag.png"))
         self.mobi_icon_g = QtGui.QImage(_fromUtf8("images/mobi_tag_g.png"))
         self.redrawTable()
+        #############
 
         self.btnEpMoAll = QtGui.QPushButton(self.centralwidget)
         self.btnEpMoAll.setGeometry(QtCore.QRect(10, 400, 151, 91))
@@ -116,6 +170,13 @@ class Ui_MainWindow(object):
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 684, 22))
         self.menubar.setObjectName(_fromUtf8("menubar"))
+        menu = self.menubar.addMenu("Kindle Sync")
+        aboutAction = menu.addAction("Acerca de")
+        aboutAction.setMenuRole(QtGui.QAction.AboutRole)
+        aboutDialog = QtGui.QDialog(MainWindow)
+        ui_dialog = Ui_Dialog()
+        ui_dialog.setupUi(aboutDialog)
+        aboutAction.triggered.connect(aboutDialog.exec_)
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -133,7 +194,7 @@ class Ui_MainWindow(object):
         self.books = collectiBooks()
         createLibrary(self.books)
         self.model.setColumnCount(3)
-        self.model.setColumnCount(len(self.books))
+        self.model.setRowCount(len(self.books))
 
         self.tableViewLibrary.setModel(self.model)
 
@@ -163,17 +224,42 @@ class Ui_MainWindow(object):
             self.model.setItem(i, 0, itemCol1)
             self.model.setItem(i, 1, itemCol2)
             self.model.setItem(i, 2, itemCol3)
-        ## Slot Signal >> QtCore.QObject.connect(self.tableViewLibrary, QtCore.SIGNAL("entered(const QModelIndex&)"), self.onClickConvertSel)
         if len(self.books) > 13:
-            tableViewWidth = self.tableViewLibrary.geometry().width()-17
+            tableViewWidth = self.tableViewLibrary.geometry().width()-21-17
         else:
-            tableViewWidth = self.tableViewLibrary.geometry().width()-2
+            tableViewWidth = self.tableViewLibrary.geometry().width()-21-2
         self.tableViewLibrary.setColumnWidth(0, tableViewWidth * 0.80)
         self.tableViewLibrary.setColumnWidth(1, tableViewWidth * 0.10)
         self.tableViewLibrary.setColumnWidth(2, tableViewWidth * 0.10)
 
     def onClickConvertSel(self):
         index_list = self.tableViewLibrary.selectionModel().selectedRows()
+        index_list_aux = []
+
+        for index in index_list:
+            index_list_aux.append(index.row())
+
+        progress = QtGui.QProgressDialog(MainWindow)
+        # progress.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
+        progress.setRange(0, len(index_list_aux))
+        progress.setWindowModality(QtCore.Qt.WindowModal)
+        progress.setAutoClose(False)
+        progress.setAutoReset(False)
+        progress.setCancelButton(None)
+
+        conv = ConversorThread(index_list_aux, self.books)
+        conv.finished.connect(progress.close)
+        conv.finished.connect(self.redrawTable)
+
+        conv.finishBookName.connect(progress.setLabelText)
+        conv.finishBookNum.connect(progress.setValue)
+        conv.finishWithError.connect(self.showConversionErrors)
+
+        conv.start()
+        progress.show()
+
+    def onClickConvertAll(self):
+        index_list = range(len(self.books))
 
         progress = QtGui.QProgressDialog(MainWindow)
         # progress.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
@@ -183,36 +269,16 @@ class Ui_MainWindow(object):
         progress.setAutoReset(False)
         progress.setCancelButton(None)
 
-        for i, index in enumerate(index_list):
-            progress.setLabelText(_fromUtf8("Convirtiendo: " + self.books[index.row()]['book_name']))
-            print self.books[index.row()]['book_name']
-            progress.setValue(i)
-            progress.show()
-            QtCore.QCoreApplication.instance().processEvents()
-            if not self.books[index.row()]['converted']:
-                cmd = "./kindlegen " + ibooks_folder + self.books[index.row()]['book_file'] + " -o " + self.books[index.row()]['book_file'].split(".")[0] + ".mobi"
-                print cmd
-                try:
-                    os.system(cmd)
-                except Exception, e:
-                    print e
-                
-                try:
-                    os.rename(ibooks_folder + self.books[index.row()]['book_file'].split(".")[0] + ".mobi", ks_folder + "/ConvertedKindle/" + self.books[index.row()]['book_file'].split(".")[0] + ".mobi")
-                except Exception, e:
-                    print e
-                # try:
-                #     call(cmd)
-                # except Exception, e:
-                #     print e
-                
-        progress.setValue(len(index_list))
-        progress.close()
-        self.redrawTable()
+        conv = ConversorThread(index_list, self.books)
+        conv.finished.connect(progress.close)
+        conv.finished.connect(self.redrawTable)
 
+        conv.finishBookName.connect(progress.setLabelText)
+        conv.finishBookNum.connect(progress.setValue)
+        conv.finishWithError.connect(self.showConversionErrors)
 
-    def onClickConvertAll(self):
-        pass
+        conv.start()
+        progress.show()
 
     def onClickSendAll(self):
         pass
@@ -220,12 +286,20 @@ class Ui_MainWindow(object):
     def onClickSendSel(self):
         pass
 
+    def showConversionErrors(self, file_errors):
+        if len(file_errors) is not 0:
+            box_errors = QtGui.QMessageBox(MainWindow)
+            box_errors.setIcon(QtGui.QMessageBox.Warning)
+            box_errors.setText("Los libros: " + '%s' % ', '.join(map(str, file_errors)) + " no se han podido convertir.")
+            box_errors.exec_()
+
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
+    app.setActiveWindow(MainWindow)
+
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
