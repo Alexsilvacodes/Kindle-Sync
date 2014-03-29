@@ -4,13 +4,10 @@
 Kindle Sync is a tool to syncronize your iBooks library with your Kindle. Developed in Python
 
 ##Version
-v1.0-alpha
+[v1.0-alpha](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.0-alpha)
 
 ##Author
 Alex Silva
-
-##Releases
-https://github.com/Alexsays/Kindle-Sync/releases/
 
 ##Homepage
 [http://alexsays.github.io/Kindle-Sync](http://alexsays.github.io/Kindle-Sync)
