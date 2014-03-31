@@ -20,7 +20,7 @@ setup(
 		"py2app": {
 			"iconfile": "icon.icns",
 			"argv_emulation": True,
-			"includes": ['sip', 'PyQt4._qt', 'PyQt4.QtCore', 'PyQt4.QtGui'],
+			"includes": ['sip', 'PyQt4.QtCore', 'PyQt4.QtGui'],
 			'excludes': ['PyQt4.QtDesigner', 'PyQt4.QtNetwork', 'PyQt4.QtOpenGL', 'PyQt4.QtScript', 
 					'PyQt4.QtSql', 'PyQt4.QtTest', 'PyQt4.QtWebKit', 'PyQt4.QtXml', 'PyQt4.phonon',
 					'PyQt4.QtXmlPatterns', 'PyQt4.QtSvg', 'PyQt4.QtScriptTools', 'PyQt4.QtNetwork',
@@ -28,5 +28,6 @@ setup(
 		}
 	},
 	setup_requires=["py2app"],
-	data_files=[('', ['images']), ('', ['kindlegen'])]
+	data_files=[('', ['images'])],
+	
 )

@@ -73,6 +73,7 @@ class ConversorThread(QtCore.QThread):
                 self.finishBookNum.emit(i+1)
         self.finishWithError.emit(self.file_error)
 
+
 class Ui_MainWindow(object):
     """
     Main Window class
@@ -176,7 +177,7 @@ class Ui_MainWindow(object):
         aboutDialog = QtGui.QDialog(MainWindow)
         ui_dialog = Ui_Dialog()
         ui_dialog.setupUi(aboutDialog)
-        aboutAction.triggered.connect(aboutDialog.exec_)
+        aboutAction.triggered.connect(aboutDialog.show)
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -292,6 +293,7 @@ class Ui_MainWindow(object):
             box_errors.setIcon(QtGui.QMessageBox.Warning)
             box_errors.setText("Los libros: " + '%s' % ', '.join(map(str, file_errors)) + " no se han podido convertir.")
             box_errors.exec_()
+
 
 if __name__ == "__main__":
     import sys

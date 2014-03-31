@@ -23,7 +23,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(281, 298)
-        flags = QtCore.Qt.Tool
+        flags = QtCore.Qt.Tool | QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.CustomizeWindowHint 
         Dialog.setWindowFlags(flags)
         self.label = QtGui.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(10, 265, 141, 20))
