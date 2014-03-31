@@ -3,6 +3,15 @@
 
 Kindle Sync is a tool to syncronize your iBooks library with your Kindle. Developed in Python
 
+##Prerequisites
+Mac OS X Mavericks 10.9+
+
+##Deploying on Mac OS X
+Use deploy.sh script:  
+`sh deploy.sh` or `chmod u+x deploy.sh; ./deploy.sh`  
+  
+This script **requires admin privileges.**
+
 ##Version
 [v1.0-alpha](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.0-alpha)
 
