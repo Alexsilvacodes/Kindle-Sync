@@ -28,6 +28,5 @@ setup(
 		}
 	},
 	setup_requires=["py2app"],
-	data_files=[('', ['images'])],
-	
+	data_files=[('', ['images'])]
 )

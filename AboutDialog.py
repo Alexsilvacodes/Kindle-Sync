@@ -19,10 +19,12 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Dialog(object):
+class Ui_AboutDialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(281, 298)
+        Dialog.setMinimumSize(QtCore.QSize(281, 298))
+        Dialog.setMaximumSize(QtCore.QSize(281, 298))
         flags = QtCore.Qt.Tool | QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.CustomizeWindowHint 
         Dialog.setWindowFlags(flags)
         self.label = QtGui.QLabel(Dialog)
