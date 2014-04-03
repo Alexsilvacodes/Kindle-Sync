@@ -396,15 +396,16 @@ class Ui_MainWindow(object):
 
         kindle_detector = KindleDetectorThread()
         kindle_detector.finished.connect(search_dialog.close)
-        kindle_detector.finished.connect(lambda: self.callSend(kindle_send))
+        kindle_detector.finishSignal.connect(lambda: self.callSend(kindle_send))
         kindle_detector.connectSignal.connect(search_dialog.setStatus)
         kindle_detector.disconnectSignal.connect(search_dialog.setStatus)
         kindle_detector.finishSignal.connect(kindle_send.setKindlePath)
 
         search_dialog.finished.connect(kindle_detector.terminate)
+        search_dialog.closeSignal.connect(kindle_detector.terminate)
 
         # Show send progress
-        search_dialog.finished.connect(progress.show)
+        kindle_detector.finishSignal.connect(progress.show)
 
         kindle_detector.start()
         search_dialog.show()
@@ -434,15 +435,16 @@ class Ui_MainWindow(object):
 
         kindle_detector = KindleDetectorThread()
         kindle_detector.finished.connect(search_dialog.close)
-        kindle_detector.finished.connect(lambda: self.callSend(kindle_send))
+        kindle_detector.finishSignal.connect(lambda: self.callSend(kindle_send))
         kindle_detector.connectSignal.connect(search_dialog.setStatus)
         kindle_detector.disconnectSignal.connect(search_dialog.setStatus)
         kindle_detector.finishSignal.connect(kindle_send.setKindlePath)
 
         search_dialog.finished.connect(kindle_detector.terminate)
+        search_dialog.closeSignal.connect(kindle_detector.terminate)
 
         # Show send progress
-        search_dialog.finished.connect(progress.show)
+        kindle_detector.finishSignal.connect(progress.show)
 
         kindle_detector.start()
         search_dialog.show()

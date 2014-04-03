@@ -24,6 +24,8 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_SearchDialog(QtGui.QDialog):
+    closeSignal = QtCore.pyqtSignal()
+
     def __init__(self, parent=None, flags=QtCore.Qt.Dialog):
         super(Ui_SearchDialog, self).__init__(parent, flags)
         self.setupUi(self)
@@ -48,11 +50,28 @@ class Ui_SearchDialog(QtGui.QDialog):
         self.text_label.setFont(font)
         self.text_label.setAlignment(QtCore.Qt.AlignCenter)
         self.text_label.setObjectName(_fromUtf8("text_label"))
+        self.pushButton = QtGui.QPushButton(Dialog)
+        self.pushButton.setGeometry(QtCore.QRect(0, 300, 21, 21))
+        self.pushButton.setText(_fromUtf8(""))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("images/close-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QtCore.QSize(21, 21))
+        self.pushButton.setStyleSheet("QPushButton, QPushButton:disabled, QPushButton:focus:pressed { border:transparent; background-color:white; }")
+        self.pushButton.setFlat(True)
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.pushButton.setVisible(False)
+        self.pushButton.clicked.connect(self.closeSignal.emit)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
+    def closeClicked(self):
+        print "clicked"
+        self.closeSignal.emit()
+
     def setStatus(self, status):
+        self.pushButton.setVisible(True)
         if status:
             self.image_label.setPixmap(QtGui.QPixmap(_fromUtf8("images/unplug-usb.png")))
             self.text_label.setText(_fromUtf8("Desconecta el kindle"))
