@@ -317,6 +317,9 @@ class Ui_MainWindow(object):
             itemCol1.setEditable(False)
             itemCol2.setEditable(False)
             itemCol3.setEditable(False)
+            itemCol1.setSelectable(False)
+            itemCol2.setSelectable(False)
+            itemCol3.setSelectable(False)
             self.model.setItem(i, 0, itemCol1)
             self.model.setItem(i, 1, itemCol2)
             self.model.setItem(i, 2, itemCol3)
@@ -336,79 +339,82 @@ class Ui_MainWindow(object):
         for index in index_list:
             index_list_aux.append(index.row())
 
-        progress = QtGui.QProgressDialog(MainWindow)
-        progress.setRange(0, len(index_list_aux))
-        progress.setWindowModality(QtCore.Qt.WindowModal)
-        progress.setAutoClose(False)
-        progress.setAutoReset(False)
-        progress.setCancelButton(None)
+        if len(index_list) > 0:
+            progress = QtGui.QProgressDialog(MainWindow)
+            progress.setRange(0, len(index_list_aux))
+            progress.setWindowModality(QtCore.Qt.WindowModal)
+            progress.setAutoClose(False)
+            progress.setAutoReset(False)
+            progress.setCancelButton(None)
 
-        conv = ConversorThread(index_list_aux, self.books)
-        conv.finished.connect(progress.close)
-        conv.finished.connect(self.redrawTable)
+            conv = ConversorThread(index_list_aux, self.books)
+            conv.finished.connect(progress.close)
+            conv.finished.connect(self.redrawTable)
 
-        conv.finishBookName.connect(progress.setLabelText)
-        conv.finishBookNum.connect(progress.setValue)
-        conv.finishWithError.connect(self.showConversionErrors)
+            conv.finishBookName.connect(progress.setLabelText)
+            conv.finishBookNum.connect(progress.setValue)
+            conv.finishWithError.connect(self.showConversionErrors)
 
-        conv.start()
-        progress.show()
+            conv.start()
+            progress.show()
 
     def onClickConvertAll(self):
         index_list = range(len(self.books))
 
-        progress = QtGui.QProgressDialog(MainWindow)
-        progress.setRange(0, len(index_list))
-        progress.setWindowModality(QtCore.Qt.WindowModal)
-        progress.setAutoClose(False)
-        progress.setAutoReset(False)
-        progress.setCancelButton(None)
+        if len(index_list) > 0:
+            progress = QtGui.QProgressDialog(MainWindow)
+            progress.setRange(0, len(index_list))
+            progress.setWindowModality(QtCore.Qt.WindowModal)
+            progress.setAutoClose(False)
+            progress.setAutoReset(False)
+            progress.setCancelButton(None)
 
-        conv = ConversorThread(index_list, self.books)
-        conv.finished.connect(progress.close)
-        conv.finished.connect(self.redrawTable)
+            conv = ConversorThread(index_list, self.books)
+            conv.finished.connect(progress.close)
+            conv.finished.connect(self.redrawTable)
 
-        conv.finishBookName.connect(progress.setLabelText)
-        conv.finishBookNum.connect(progress.setValue)
-        conv.finishWithError.connect(self.showConversionErrors)
+            conv.finishBookName.connect(progress.setLabelText)
+            conv.finishBookNum.connect(progress.setValue)
+            conv.finishWithError.connect(self.showConversionErrors)
 
-        conv.start()
-        progress.show()
+            conv.start()
+            progress.show()
 
     def onClickSendAll(self):
         # Get item list
         index_list = range(len(self.books))
 
-        # Prepare send and detector threads
-        search_dialog = Ui_SearchDialog(MainWindow)
-        progress = QtGui.QProgressDialog(MainWindow)
-        progress.setRange(0, len(index_list))
-        progress.setWindowModality(QtCore.Qt.WindowModal)
-        progress.setAutoClose(False)
-        progress.setAutoReset(False)
-        progress.setCancelButton(None)
-        progress.setLabelText(_fromUtf8("Enviando libros al Kindle"))
+        if len(index_list) > 0:
+            # Prepare send and detector threads
+            search_dialog = Ui_SearchDialog(MainWindow)
+            progress = QtGui.QProgressDialog(MainWindow)
+            progress.setRange(0, len(index_list))
+            progress.setWindowModality(QtCore.Qt.WindowModal)
+            progress.setAutoClose(False)
+            progress.setAutoReset(False)
+            progress.setCancelButton(None)
+            progress.setLabelText(_fromUtf8("Enviando libros al Kindle"))
 
-        kindle_send = KindleSendThread(index_list, self.books)
-        kindle_send.finishBook.connect(progress.setValue)
-        kindle_send.finishAll.connect(self.showSent)
-        kindle_send.finished.connect(progress.close)
+            kindle_send = KindleSendThread(index_list, self.books)
+            kindle_send.finishBook.connect(progress.setValue)
+            kindle_send.finishAll.connect(self.showSent)
+            kindle_send.finished.connect(progress.close)
 
-        kindle_detector = KindleDetectorThread()
-        kindle_detector.finished.connect(search_dialog.close)
-        kindle_detector.finishSignal.connect(lambda: self.callSend(kindle_send))
-        kindle_detector.connectSignal.connect(search_dialog.setStatus)
-        kindle_detector.disconnectSignal.connect(search_dialog.setStatus)
-        kindle_detector.finishSignal.connect(kindle_send.setKindlePath)
+            kindle_detector = KindleDetectorThread()
+            kindle_detector.finished.connect(search_dialog.close)
+            kindle_detector.finishSignal.connect(lambda: self.callSend(kindle_send))
+            kindle_detector.connectSignal.connect(search_dialog.setStatus)
+            kindle_detector.disconnectSignal.connect(search_dialog.setStatus)
+            kindle_detector.finishSignal.connect(kindle_send.setKindlePath)
 
-        search_dialog.finished.connect(kindle_detector.terminate)
-        search_dialog.closeSignal.connect(kindle_detector.terminate)
+            search_dialog.finished.connect(kindle_detector.terminate)
+            search_dialog.closeSignal.connect(kindle_detector.terminate)
 
-        # Show send progress
-        kindle_detector.finishSignal.connect(progress.show)
+            # Show send progress
+            kindle_detector.finishSignal.connect(progress.show)
 
-        kindle_detector.start()
-        search_dialog.show()
+            kindle_detector.start()
+            search_dialog.show()
 
     def onClickSendSel(self):
         # Get item list
@@ -418,36 +424,37 @@ class Ui_MainWindow(object):
         for index in index_list:
             index_list_aux.append(index.row())
 
-        # Prepare send and detector threads
-        search_dialog = Ui_SearchDialog(MainWindow)
-        progress = QtGui.QProgressDialog(MainWindow)
-        progress.setRange(0, len(index_list_aux))
-        progress.setWindowModality(QtCore.Qt.WindowModal)
-        progress.setAutoClose(False)
-        progress.setAutoReset(False)
-        progress.setCancelButton(None)
-        progress.setLabelText(_fromUtf8("Enviando libros al Kindle"))
+        if len(index_list) > 0:
+            # Prepare send and detector threads
+            search_dialog = Ui_SearchDialog(MainWindow)
+            progress = QtGui.QProgressDialog(MainWindow)
+            progress.setRange(0, len(index_list_aux))
+            progress.setWindowModality(QtCore.Qt.WindowModal)
+            progress.setAutoClose(False)
+            progress.setAutoReset(False)
+            progress.setCancelButton(None)
+            progress.setLabelText(_fromUtf8("Enviando libros al Kindle"))
 
-        kindle_send = KindleSendThread(index_list_aux, self.books)
-        kindle_send.finishBook.connect(progress.setValue)
-        kindle_send.finishAll.connect(self.showSent)
-        kindle_send.finished.connect(progress.close)
+            kindle_send = KindleSendThread(index_list_aux, self.books)
+            kindle_send.finishBook.connect(progress.setValue)
+            kindle_send.finishAll.connect(self.showSent)
+            kindle_send.finished.connect(progress.close)
 
-        kindle_detector = KindleDetectorThread()
-        kindle_detector.finished.connect(search_dialog.close)
-        kindle_detector.finishSignal.connect(lambda: self.callSend(kindle_send))
-        kindle_detector.connectSignal.connect(search_dialog.setStatus)
-        kindle_detector.disconnectSignal.connect(search_dialog.setStatus)
-        kindle_detector.finishSignal.connect(kindle_send.setKindlePath)
+            kindle_detector = KindleDetectorThread()
+            kindle_detector.finished.connect(search_dialog.close)
+            kindle_detector.finishSignal.connect(lambda: self.callSend(kindle_send))
+            kindle_detector.connectSignal.connect(search_dialog.setStatus)
+            kindle_detector.disconnectSignal.connect(search_dialog.setStatus)
+            kindle_detector.finishSignal.connect(kindle_send.setKindlePath)
 
-        search_dialog.finished.connect(kindle_detector.terminate)
-        search_dialog.closeSignal.connect(kindle_detector.terminate)
+            search_dialog.finished.connect(kindle_detector.terminate)
+            search_dialog.closeSignal.connect(kindle_detector.terminate)
 
-        # Show send progress
-        kindle_detector.finishSignal.connect(progress.show)
+            # Show send progress
+            kindle_detector.finishSignal.connect(progress.show)
 
-        kindle_detector.start()
-        search_dialog.show()
+            kindle_detector.start()
+            search_dialog.show()
 
     def showSent(self, file_sent, file_error):
         box_errors = QtGui.QMessageBox(MainWindow)
