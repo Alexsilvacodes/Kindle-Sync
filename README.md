@@ -12,8 +12,8 @@ Use deploy.sh script:
   
 This script **requires admin privileges.**
 
-##Version
-[v1.0-alpha](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.0-alpha)
+##Latest Version
+[v1.0-beta](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.0-beta)
 
 ##Author
 Alex Silva
