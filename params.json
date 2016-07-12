@@ -1,1 +1,7 @@
-{"name":"Kindle-sync","tagline":"Kindle Sync is a tool to syncronize your iBooks library with your Kindle. Developed in Python","body":"#Kindle-Sync\r\n\r\n\r\nKindle Sync is a tool to syncronize your iBooks library with your Kindle. Developed in Python\r\n\r\n##Version\r\n1.0a\r\n\r\n##Author\r\nAlejandro Silva Fernández \r\n\r\n##Contact\r\nVisit app homepage at: [https://github.com/Alexsays/Kindle-Sync](https://github.com/Alexsays/Kindle-Sync)\r\n\r\n##License\r\nThis program is free software, licensed under [GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
+{
+  "name": "Kindle Sync",
+  "tagline": "Kindle Sync is a tool to syncronize your iBooks library with your Kindle. Developed in Python",
+  "body": "#Kindle Sync\r\n\r\n\r\nKindle Sync is a tool to syncronize your iBooks library with your Kindle. Developed in Python\r\n\r\n![](http://i.imgur.com/ngTl1Tc.png)\r\n\r\n##Prerequisites\r\nMac OS X Mavericks 10.9+\r\n\r\n##Deploying on Mac OS X\r\nUse deploy.sh script:  \r\n`sh deploy.sh` or `chmod u+x deploy.sh; ./deploy.sh`  \r\n  \r\nThis script **requires admin privileges.**\r\n\r\n##Latest Version\r\n[v1.3-beta](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.3-beta)\r\n\r\n##Author\r\nAlex Silva\r\n\r\n##Homepage\r\n[http://alexsays.github.io/Kindle-Sync](http://alexsays.github.io/Kindle-Sync)\r\n\r\n##License\r\nThis program is free software, licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0-standalone.html)\r\n",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
