@@ -12,7 +12,7 @@ from setuptools import setup
 setup(
 	name="Kindle Sync",
 	app=["KindleSyncMain.py"],
-	version="1.0a",
+	version="1.3b",
 	author="Alejandro Silva",
 	url="https://github.com/Alexsays/Kindle-Sync",
 	license="GNU General Public License (GPLv2)",

@@ -72,6 +72,9 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton, QPushButton:disabled, QPushButton:focus:pressed { background-color: white; }</string>
+   </property>
    <property name="text">
     <string/>
    </property>

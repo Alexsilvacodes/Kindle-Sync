@@ -79,5 +79,5 @@ class Ui_AboutDialog(object):
 "<p style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:large; font-weight:600;\">Web</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"http://alexsays.github.io/Kindle-Sync/\"><span style=\" text-decoration: underline; color:#0000ff;\">http://alexsays.github.io/Kindle-Sync/</span></a></p></body></html>", None))
         self.label_2.setText(_translate("Dialog", "Kindle Sync", None))
-        self.label_3.setText(_translate("Dialog", "1.0b", None))
+        self.label_3.setText(_translate("Dialog", "1.3b", None))
 

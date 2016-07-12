@@ -38,6 +38,7 @@ class KindleSync():
 		for elem in books_library['Books']:
 			if "epub" in elem['path']:
 				epub_file = elem['path'].split("/")[-1]
+				print elem['itemName']
 				epub_name = elem['itemName'].encode('utf-8')
 				# {book_name: "blabla", book_file: "blabla.epub", converted: True}
 				books.append({'book_name': epub_name, 'book_file': epub_file, 'converted': isfile(ks_folder + "/ConvertedKindle/" + epub_file.split(".")[0] + ".mobi")})

@@ -151,7 +151,7 @@ class KindleSendThread(QtCore.QThread):
                     file_sent.append(str(i+1))
                 except IOError, e:
                     file_error.append(str(i+1))
-                
+
                 self.finishBook.emit(i+1)
                 sleep(0.5)
             else:
@@ -198,7 +198,7 @@ class Ui_MainWindow(object):
 
         ## Changes ##
         self.model = QtGui.QStandardItemModel()
-        
+
         self.blue_color = QtGui.QBrush(QtGui.QColor(240, 243, 249))
         self.epub_icon = QtGui.QImage(_fromUtf8("images/epub_tag.png"))
         self.mobi_icon = QtGui.QImage(_fromUtf8("images/mobi_tag.png"))
@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
             else:
                 itemCol3.setData(QtCore.QVariant(self.mobi_icon_g), QtCore.Qt.DecorationRole)
 
-            if not i%2: 
+            if not i%2:
                 itemCol1.setBackground(self.blue_color)
                 itemCol2.setBackground(self.blue_color)
                 itemCol3.setBackground(self.blue_color)
@@ -458,7 +458,7 @@ class Ui_MainWindow(object):
 
     def showSent(self, file_sent, file_error):
         box_errors = QtGui.QMessageBox(MainWindow)
-        
+
         if len(file_sent) > 0 and len(file_error) < 1 :
             box_errors.setIcon(QtGui.QMessageBox.Information)
             box_errors.setText("Todos los libros se han enviado correctamente al kindle.")
