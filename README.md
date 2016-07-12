@@ -13,7 +13,7 @@ Use deploy.sh script:
 This script **requires admin privileges.**
 
 ##Latest Version
-[v1.0-beta](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.0-beta)
+[v1.3-beta](https://github.com/Alexsays/Kindle-Sync/releases/tag/v1.3-beta)
 
 ##Author
 Alex Silva
