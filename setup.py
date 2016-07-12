@@ -15,7 +15,7 @@ setup(
 	version="1.3b",
 	author="Alejandro Silva",
 	url="https://github.com/Alexsays/Kindle-Sync",
-	license="GNU General Public License (GPLv2)",
+	license="GNU General Public License (GPLv3)",
 	options={
 		"py2app": {
 			"iconfile": "icon.icns",

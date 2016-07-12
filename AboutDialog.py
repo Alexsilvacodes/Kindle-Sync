@@ -38,7 +38,7 @@ class Ui_AboutDialog(object):
         self.btnLicense.setGeometry(QtCore.QRect(160, 260, 114, 32))
         self.btnLicense.setObjectName(_fromUtf8("btnLicense"))
 
-        self.btnLicense.clicked.connect(lambda: webbrowser.open("http://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html"))
+        self.btnLicense.clicked.connect(lambda: webbrowser.open("https://www.gnu.org/licenses/gpl-3.0-standalone.html"))
 
         self.textEdit = QtGui.QTextBrowser(Dialog)
         self.textEdit.setGeometry(QtCore.QRect(0, 110, 281, 131))
@@ -68,7 +68,7 @@ class Ui_AboutDialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        self.label.setText(_translate("Dialog", "GPLv2 2014 - Alex Silva", None))
+        self.label.setText(_translate("Dialog", "GPLv3 2016 - Alex Silva", None))
         self.btnLicense.setText(_translate("Dialog", "Licencia", None))
         self.textEdit.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
