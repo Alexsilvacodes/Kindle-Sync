@@ -19,7 +19,7 @@ This script **requires admin privileges.**
 Alex Silva
 
 ## Homepage
-[http://alexsays.github.io/Kindle-Sync](http://alexsays.github.io/Kindle-Sync)
+[http://alexsilvacodes.github.io/Kindle-Sync](http://alexsilvacodes.github.io/Kindle-Sync)
 
 ## License
 This program is free software, licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
